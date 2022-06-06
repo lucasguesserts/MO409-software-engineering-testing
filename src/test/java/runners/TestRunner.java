@@ -6,7 +6,8 @@ public class TestRunner {
     @Karate.Test
     Karate testAll() {
         return Karate.run(
-            "get"
+            "get",
+            "post"
         ).relativeTo(getClass());
     }
 }
