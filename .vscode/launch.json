@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "karate",
+      "name": "Karate (debug): Gradle",
+      "request": "launch",
+      "feature": "${command:karateRunner.getDebugFile}",
+      "karateOptions": "",
+      "karateCli": "gradle compileTestJava -b \"${command:karateRunner.getDebugBuildFile}\" karateExecute -DmainClass=com.intuit.karate.cli.Main --args=\"-d\" ${config:karateRunner.karateRunner.commandLineArgs}"
+    }
+  ]
+}
