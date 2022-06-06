@@ -1,6 +1,8 @@
-package runners;
+package tutorial;
 
 import com.intuit.karate.junit5.Karate;
+
+// https://automationtestings.com/karate-framework/
 
 public class TestRunner {
     @Karate.Test
