@@ -2,7 +2,9 @@ bin/
 build/
 .settings/
 .gradle/
+target
 
 # vscode
 .vscode/*
 !.vscode/settings.json
+!.vscode/launch.json
