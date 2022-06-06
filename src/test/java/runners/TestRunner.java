@@ -7,7 +7,8 @@ public class TestRunner {
     Karate testAll() {
         return Karate.run(
             "get",
-            "post"
+            "post",
+            "put"
         ).relativeTo(getClass());
     }
 }
