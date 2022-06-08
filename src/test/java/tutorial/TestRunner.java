@@ -11,7 +11,8 @@ public class TestRunner {
             "get",
             "post",
             "put",
-            "PostDataTable"
+            "PostDataTable",
+            "PostDataTableCSV"
         ).relativeTo(getClass());
     }
 }
