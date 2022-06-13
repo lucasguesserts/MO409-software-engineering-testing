@@ -10,7 +10,9 @@ public class TestRunner {
         return Karate.run(
             "get",
             "post",
-            "put"
+            "put",
+            "PostDataTable",
+            "PostDataTableCSV"
         ).relativeTo(getClass());
     }
 }
