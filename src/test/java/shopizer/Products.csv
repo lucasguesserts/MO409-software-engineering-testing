@@ -1,0 +1,7 @@
+product_sku,visible,date_available,manufacturer,price,quantity,name,friendly_url,category
+'test01',true,'2022-06-21','DEFAULT',12.34,1234,'Test01','test_01','category_01'
+'test02',true,'2022-06-21','DEFAULT',12.34,1234,'Test02','test_02','category_01'
+'test03',true,'2022-06-21','DEFAULT',12.34,1234,'Test03','test_03','category_01'
+'test04',true,'2022-06-21','DEFAULT',12.34,1234,'Test04','test_04','category_02'
+'test05',true,'2022-06-21','DEFAULT',12.34,1234,'Test05','test_05','category_02'
+'test06',true,'2022-06-21','DEFAULT',12.34,1234,'Test06','test_06','category_02'

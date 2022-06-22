@@ -1,0 +1,3 @@
+cat_id,visible,store,name,friendly_url
+1,"true","DEFAULT","Category01","category_01"
+2,"true","DEFAULT","Category02","category_02"
