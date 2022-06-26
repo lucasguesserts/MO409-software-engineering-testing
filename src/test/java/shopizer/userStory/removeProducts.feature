@@ -1,10 +1,10 @@
-Feature: Simple Inventory Testing
+Feature: Products
 
   Background:
     * url 'http://localhost:8080'
     * header Content-Type = 'application/json'
 
-  Scenario Outline: Remove Products
+  Scenario Outline: Remove Products SKU -> <product_sku>
     # Auth
     Given path '/api/v1/private/login'
     And request {username: 'admin@shopizer.com', password: 'password'}'

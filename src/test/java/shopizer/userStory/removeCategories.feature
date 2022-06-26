@@ -1,10 +1,10 @@
-Feature: Simple Inventory Testing
+Feature: Categories
 
   Background:
     * url 'http://localhost:8080'
     * header Content-Type = 'application/json'
 
-  Scenario Outline: Create Categories
+  Scenario Outline: Delete Category -> <friendly_url>
     # Auth
     Given path '/api/v1/private/login'
     And request {username: 'admin@shopizer.com', password: 'password'}'

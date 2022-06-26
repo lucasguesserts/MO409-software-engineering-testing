@@ -1,11 +1,11 @@
-Feature: Simple Inventory Testing
+Feature: Products & Categories
 
   Background:
     * url 'http://localhost:8080'
     * header Content-Type = 'application/json'
     * def token = ''
 
-  Scenario Outline: Associate Products to Category
+  Scenario Outline: Associate Product to Category <product_sku> -> <friendly_url>
     # Auth
     Given path '/api/v1/private/login'
     And request {username: 'admin@shopizer.com', password: 'password'}'
