@@ -1,0 +1,15 @@
+test_id, product_sku,visible,date_available,manufacturer,price,quantity,name,friendly_url
+T12, '',true,'2022-06-21','DEFAULT',12.34,1234,'T12','t_12'
+T13, 't13',true,null,'DEFAULT',12.34,1234,'T13','t_13'
+T14, 't14',true,'','DEFAULT',12.34,1234,'T14','t_14'
+T15, 't15',true,'20220621','DEFAULT',12.34,1234,'T15','t_15'
+T16, 't16',true,'2022-06-21',null,12.34,1234,'T16','t_16'
+T17, 't17',true,'2022-06-21','',12.34,1234,'T17','t_17'
+T18, 't18',true,'2022-06-21','DEFAULT',null,1234,'T18','t_18'
+T19, 't19',true,'2022-06-21','DEFAULT',-1,1234,'T19','t_19'
+T20, 't20',true,'2022-06-21','DEFAULT',12.34,null,'T20','t_20'
+T21, 't21',true,'2022-06-21','DEFAULT',12.34,-1,'T21','t_21'
+T22, 't22',true,'2022-06-21','DEFAULT',12.34,1234,null,'t_22'
+T23, 't23',true,'2022-06-21','DEFAULT',12.34,1234,'','t_23'
+T24, 't24',true,'2022-06-21','DEFAULT',12.34,1234,'T24',null
+T25, 't25',true,'2022-06-21','DEFAULT',12.34,1234,'T25',''

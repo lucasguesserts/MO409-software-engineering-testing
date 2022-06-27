@@ -3,7 +3,6 @@ Feature: Inventory Management - Associate Product to Category
   Background:
     * url 'http://localhost:8080'
     * header Content-Type = 'application/json'
-    * def token = ''
 
   Scenario: T26
     # Auth

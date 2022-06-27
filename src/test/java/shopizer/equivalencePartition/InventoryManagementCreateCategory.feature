@@ -4,48 +4,6 @@ Feature: Inventory Management - Create Category
     * url 'http://localhost:8080'
     * header Content-Type = 'application/json'
 
-
-  #Scenario: T4 -> Esse Funciona
-    # Auth
-    #Given path '/api/v1/private/login'
-    #And request {username: 'admin@shopizer.com', password: 'password'}'
-    #When method POST
-    #Then status 200
-    #And print response
-    #And match response.token == '#present'
-    #And def token = response.token
-    #And print token
-    # Create Category
-    #Given path '/api/v1/private/category'
-    #And header Authorization = 'Bearer ' + token
-    #And request
-      #"""
-      #{
-      #"parent": { "id": null, "code": "root" },
-      #"store": 'DEFAULT',
-      #"visible": true,
-      #"code": 1,
-      #"sortOrder": 0,
-      #"selectedLanguage": "en",
-      #"descriptions":
-      #[
-        #{
-          #"language": "en",
-          #"name": 'T4',
-          #"highlights": "",
-          #"friendlyUrl": 'T4',
-          #"description": "",
-          #"title": "",
-          #"metaDescription": "",
-        #},
-      #],
-      #}
-      #"""
-    #When method POST
-    #Then status 201
-    #And print response
-    #And match response.id == '#present'
-
   Scenario: T5
     # Auth
     Given path '/api/v1/private/login'
