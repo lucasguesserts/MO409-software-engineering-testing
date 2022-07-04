@@ -1,7 +1,8 @@
 import random
 import string
+import sys
 
-length = 255
+length = int(sys.argv[1])
 
 output_string = ''.join(
     random.SystemRandom()

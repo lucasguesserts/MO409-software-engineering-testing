@@ -45,7 +45,7 @@ Feature: Inventory Management - Create Product
                   "highlights": "",
                   "friendlyUrl": <friendly_url>,
                   "description": "",
-                  "title": "getMerchantName(){return localStorage.getItem(\"merchant\")} | <name>",
+                  "title": "<name>",
                   "keyWords": "",
                   "metaDescription": ""
               }
@@ -58,6 +58,11 @@ Feature: Inventory Management - Create Product
     And match response.id == '#present'
     And def productId = response.id
     And print productId
+    # Remove Product
+    Given path '/api/v1/private/product/' + productId
+    And header Authorization = 'Bearer ' + token
+    When method DELETE
+    Then status 200
 
     Examples:
-      | read('CreateProducts.csv') |
+      | read('CreateProductAtLimit.csv') |
