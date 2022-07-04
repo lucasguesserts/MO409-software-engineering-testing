@@ -18,8 +18,10 @@ public class ShopizerTestRunner {
             // "equivalencePartition/InventoryManagementRemoveCategory",
             // "equivalencePartition/SearchToolsProduct",
             // "equivalencePartition/SearchToolsCategory"
-            "limitValues/CreateProductAtLimit",
-            "limitValues/CreateProductAboveLimit"
+            // "limitValues/CreateProductAtLimit",
+            // "limitValues/CreateProductAboveLimit",
+            "limitValues/createCategoriesAtLimit",
+            "limitValues/createCategoriesAboveLimit"
         ).relativeTo(getClass());
     }
 }
