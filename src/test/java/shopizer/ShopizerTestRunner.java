@@ -22,10 +22,10 @@ public class ShopizerTestRunner {
             // "limitValues/CreateProductAboveLimit",
             // "limitValues/createCategoriesAtLimit",
             // "limitValues/createCategoriesAboveLimit"
-            "project-5/H1",
-            "project-5/H2",
-            "project-5/H3",
-            "project-5/H4"
+            "project-5/H1"
+            // "project-5/H2",
+            // "project-5/H3",
+            // "project-5/H4"
         ).relativeTo(getClass());
     }
 }

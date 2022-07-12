@@ -3,75 +3,67 @@ Feature: H1 Story
   Background:
     * url 'http://localhost:8080/api/v1'
 
-Scenario: H1 story - path [1, 4, 5, 7, 8, 9]
-
-    # perform customer login
-    Given path '/customer/login'
-    And request { "username": boloceno@hotmail.com, "password": Faabio123@ }
-    And method post
-    Then status 200
-    And def token = response.token
-    
-    # get user data
-    Given path '/auth/customer/profile'
-    And header Authorization = 'Bearer ' + token
-    And method get
-    Then status 200
-    And print response
-    
-    # order history
-    Given path '/auth/orders'
-    And header Authorization = 'Bearer ' + token
-    And method get
-    Then print response
-    And status 200
-
-Scenario: H1 story - path [1, 3, 2, 1, 4, 6, 7, 8, 9]
+Scenario: H1 story - create user and list orders
 
     # invalid login credentials
     Given path '/customer/login'
-    And request { "username": anakin@jedi.com, "password": blue }
+    And request { "username": "obiwan@jedi.order", "password": "S@tin3" }
     And method post
     Then status 401
-    
+
     # register user
     Given path '/customer/register'
-    And request { "userName": anakin,"password": blue,"emailAddress": anakin@jedi.com,"gender":"M","language":"en","billing":{"country":"CA","stateProvince":"ON","firstName":"Teste","lastName":"Teste"}}
+    And request
+    """
+        {
+            "userName": "obiwan",
+            "password": "S@tin3",
+            "emailAddress": "obiwan@jedi.order",
+            "gender": "M",
+            "language": "en",
+            "billing": {
+                "country": "CA",
+                "stateProvince": "ON",
+                "firstName": "Teste",
+                "lastName": "Teste"
+            }
+        }
+    """
     And method post
     Then status 200
-		And print response
+    And print response
 
     # now login is valid
     Given path '/customer/login'
-    And request { "username": anakin@jedi.com, "password": blue }
+    And request { "username": "obiwan@jedi.order", "password": "S@tin3" }
     And method post
-		Then status 200
+    Then status 200
     And def token = response.token
     And def userId = response.id
-    
+
     # change password
     Given path '/auth/customer/password'
     And header Authorization = 'Bearer ' + token
-    And request 
-	    """
-	    {
-			  "current": "blue",
-			  "password": "red",
-			  "repeatPassword": "red",
-			  "username": "anakin@jedi.com"
-			}
-	    """
+    And request
+    """
+        {
+            "current": "S@tin3",
+            "password": "MyS@tin3",
+            "repeatPassword": "MyS@tin3",
+            "username": "obiwan@jedi.order"
+        }
+    """
     And method post
-		Then status 200
-		And print response
-    
+    Then status 200
+    And print response
+
     # order history
     Given path '/auth/orders'
     And header Authorization = 'Bearer ' + token
     And method get
     Then print response
     And status 200
-    
+
     # auth admin
     Given path '/private/login'
     And request {username: 'admin@shopizer.com', password: 'password'}'
@@ -79,18 +71,17 @@ Scenario: H1 story - path [1, 3, 2, 1, 4, 6, 7, 8, 9]
     Then status 200
     And print response
     And match response.token == '#present'
-    
+
     # delete user
     Given path '/private/customer/' + userId
     And header Authorization = 'Bearer ' + token
     And method delete
-    #Then status 200   
-      
-      
-      
-      
-      
+    #Then status 200
 
-    
-    
-    
+
+
+
+
+
+
+
