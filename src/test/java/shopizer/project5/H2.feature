@@ -78,21 +78,6 @@ Feature: H1 Story
     And def token = response.token
     And def userId = response.id
 
-  # Teste Duplicado
-  Scenario: H2 story - login fails - then succeeds
-    # login fails
-    Given path '/v1/customer/login'
-    And request { "username": "anakin@jedi.com", "password": "red" }
-    And method post
-    Then status 401
-    # login succeeds
-    Given path '/v1/customer/login'
-    And request { "username": "anakin@jedi.com", "password": "blue" }
-    And method post
-    Then status 200
-    And def token = response.token
-    And def userId = response.id
-
   Scenario: H2 story - list categories
     # login succeeds
     Given path '/v1/customer/login'
