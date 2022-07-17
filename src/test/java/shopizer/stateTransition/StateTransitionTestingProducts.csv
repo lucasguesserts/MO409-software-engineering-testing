@@ -1,0 +1,4 @@
+product_sku,price,quantity,name,friendly_url
+"bluelightsaber", 10, 100, Blue LightSaber, "bluelightsaber"
+"redlightsaber", 15, 150, Red LightSaber, "redlightsaber"
+"purplelightsaber", 1000, 1, Purple LightSaber, "purplelightsaber"
