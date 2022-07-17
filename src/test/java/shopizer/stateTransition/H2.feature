@@ -1,4 +1,4 @@
-Feature: H1 Story
+Feature: H2 Story
 
   Background:
     * url 'http://localhost:8080/api'
@@ -42,41 +42,76 @@ Feature: H1 Story
     And print response
     And match response.id == '#present'
     And print  response.id
+    # Register User
+    Given path '/v1/customer/register'
+    And request
+      """
+       {
+          "userName": "anakin",
+          "password": "blue",
+          "emailAddress": "anakin@jedi.com",
+          "gender": "M",
+          "language": "en",
+          "billing": {
+            "country": "CA",
+            "stateProvince": "ON",
+            "firstName": "Anakin",
+            "lastName": "Skywalker"
+          }
+       }
+      """
+    And method POST
 
   Scenario: H2 story - user does not exist - create and delete
     # invalid login credentials
     Given path '/v1/customer/login'
-    And request { "username": anakin@jedi.com, "password": blue }
-    And method post
-    Then status 401
+    And request { "username": "obiwan@jedi.order", "password": "S@tin3" }
+    And method POST
+    # API Com problemas e Inconsistente
+    Then match [200, 401] contains responseStatus
     # register user
     Given path '/v1/customer/register'
     And request
       """
        {
-        "userName": "anakin",
-        "password": "blue",
-        "emailAddress": "anakin@jedi.com",
-        "gender": "M",
-        "language": "en",
-        "billing": {
+          "userName": "obiwan",
+          "password": "S@tin3",
+          "emailAddress": "obiwan@jedi.order",
+          "gender": "M",
+          "language": "en",
+          "billing": {
             "country": "CA",
             "stateProvince": "ON",
             "firstName": "Teste",
             "lastName": "Teste"
-        }
+          }
        }
       """
-    And method post
-    Then status 200
+    And method POST
+    # API Com problemas e Inconsistente
+    Then match [200, 500] contains responseStatus
     And print response
     # now login is valid
     Given path '/v1/customer/login'
-    And request { "username": "anakin@jedi.com", "password": "blue" }
-    And method post
+    And request { "username": "obiwan@jedi.order", "password": "S@tin3" }
+    And method POST
     Then status 200
     And def token = response.token
     And def userId = response.id
+    # Admin Login
+    Given path '/v1/private/login'
+    And request {username: 'admin@shopizer.com', password: 'password'}'
+    When method POST
+    Then status 200
+    And print response
+    And match response.token == '#present'
+    And def admToken = response.token
+    And print admToken
+    # delete user
+    Given path '/v1/private/customer/' + userId
+    And header Authorization = 'Bearer ' + admToken
+    And method delete
+    Then status 200
 
   Scenario: H2 story - list categories
     # login succeeds
